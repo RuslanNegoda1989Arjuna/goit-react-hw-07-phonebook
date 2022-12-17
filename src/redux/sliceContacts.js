@@ -1,7 +1,4 @@
-import { combineReducers, createSlice, nanoid } from '@reduxjs/toolkit';
-import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import { filterReducer } from './sliceFilter';
+import { createSlice, nanoid } from '@reduxjs/toolkit';
 
 const contactsInitialState = [
   { id: nanoid(5), name: 'Руслан Негода', number: '+380-93-494-08-30' },
@@ -18,7 +15,7 @@ export const contactsSlice = createSlice({
   // Об'єкт редюсерів
   reducers: {
     addMyContact(state, action) {
-      state.push(action.payload);
+      state.unshift(action.payload);
     },
     deleteMyContact(state, action) {
       return state.filter(el => el.id !== action.payload);
@@ -33,25 +30,4 @@ export const { addMyContact, deleteMyContact } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
 
 // selector ???
-export const getContacts = state => state.contacts.contacts;
-
-// ==================================================================
-// збереження в localstorage за допомогою бібліотеки persist
-
-const rootReducer = combineReducers({
-  contacts: contactsReducer,
-  filter: filterReducer,
-});
-
-const persistConfig = {
-  key: 'contacts',
-  storage,
-  whitelist: ['contacts'],
-};
-
-// передаємо persistConfig та contactsSlice.reducer редбюсер тієї події яку треба в
-// localstorege передати
-export const persistedContactsReducer = persistReducer(
-  persistConfig,
-  rootReducer
-);
+export const getContacts = state => state.contacts;
