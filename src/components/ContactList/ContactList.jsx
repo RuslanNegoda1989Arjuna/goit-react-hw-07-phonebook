@@ -2,7 +2,9 @@ import { ContactIt, Item, ListBox } from './ContactList.styled';
 import { IconButton } from 'components/IconButton/IconButton';
 import { MdDeleteOutline } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteMyContact, getContacts, getFilter } from '../../redux';
+// import { deleteMyContact, getContacts, getFilter } from '../../redux';
+import { useGetContactsQuery } from 'redux/sliceContacts';
+import { getFilter } from 'redux/sliceFilter';
 
 // import { deleteMyContact, getContacts } from 'redux/sliceContacts';
 // import { getFilter } from 'redux/sliceFilter';
@@ -10,7 +12,8 @@ import { deleteMyContact, getContacts, getFilter } from '../../redux';
 export const ContactList = () => {
   const dispatch = useDispatch();
   // Redux отримуєм з сховища дані
-  const contacts = useSelector(getContacts);
+  const { data: contacts } = useGetContactsQuery();
+  // const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
 
   // Ф-ція видалення

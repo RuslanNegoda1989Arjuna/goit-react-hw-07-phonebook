@@ -2,7 +2,11 @@ import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import { Button, FormUs, Input, LabelIn } from './PhonebookForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addMyContact, getContacts } from 'redux/sliceContacts';
+import {
+  addMyContact,
+  getContacts,
+  useGetContactsQuery,
+} from 'redux/sliceContacts';
 import { nanoid } from 'nanoid';
 
 const initialValues = {
@@ -13,7 +17,8 @@ const initialValues = {
 export const PhonebookForm = () => {
   const dispatch = useDispatch();
   // для перевірки однакових контактів
-  const contacts = useSelector(getContacts);
+  const { data: contacts } = useGetContactsQuery();
+  // const contacts = useSelector(getContacts);
 
   const userSubmit = (values, { resetForm }) => {
     // перевірка на однакові імена
