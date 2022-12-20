@@ -2,11 +2,7 @@ import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import { Button, FormUs, Input, LabelIn } from './PhonebookForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  addMyContact,
-  getContacts,
-  useGetContactsQuery,
-} from 'redux/sliceContacts';
+import { getContacts, useGetContactsQuery } from 'redux/sliceContacts';
 import { nanoid } from 'nanoid';
 
 const initialValues = {
@@ -27,7 +23,7 @@ export const PhonebookForm = () => {
     }
     values.id = nanoid(5);
     //  Записуємо в стейт значення
-    dispatch(addMyContact(values));
+    // dispatch(addMyContact(values));
     // скидаємо форму
     resetForm();
   };

@@ -18,7 +18,10 @@ export const App = () => {
       </PhonebookContainer>
       <TitleCont>Contacts</TitleCont>
       <Filter />
-      {contacts.length === 0 ? <Empty>empty</Empty> : <ContactList />}
+      <ContactList />
     </div>
   );
 };
+// {
+//   contacts.length === 0 ? <Empty>empty</Empty> : <ContactList />;
+// }
