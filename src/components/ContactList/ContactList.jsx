@@ -17,13 +17,12 @@ export const ContactList = () => {
   const dispatch = useDispatch();
   // Redux отримуєм з сховища дані
   const { data: contacts, isFetching } = useGetContactsQuery();
-  const [deleteContact] = useDeleteContactMutation();
+  const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
 
   // const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  console.log('123321', useGetContactsQuery());
+
   console.log(contacts);
-  console.log('DELETE', useDeleteContactMutation());
 
   // Ф-ція видалення
   // const deleteContact = idContact => {
@@ -58,7 +57,7 @@ export const ContactList = () => {
                   onClick={() => deleteContact(id)}
                   aria-label="Delete contact"
                 >
-                  <MdDeleteOutline size="20px" />
+                  {isDeleting ? '..' : <MdDeleteOutline size="20px" />}
                 </IconButton>
               </Item>
             );
