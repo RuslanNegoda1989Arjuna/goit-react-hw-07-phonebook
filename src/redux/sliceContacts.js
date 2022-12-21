@@ -17,9 +17,22 @@ export const contactsApi = createApi({
     getContacts: builder.query({
       query: () => `contacts`,
     }),
+    createContact: builder.mutation({
+      query: newContact => ({
+        url: 'contacts',
+        method: 'POST',
+        body: newContact,
+      }),
+    }),
+    deleteContact: builder.mutation({
+      query: contactId => ({
+        url: `contacts/${contactId}`,
+        method: 'DELETE',
+      }),
+    }),
   }),
 });
-export const { useGetContactsQuery } = contactsApi;
+export const { useGetContactsQuery, useDeleteContactMutation } = contactsApi;
 
 // export const { addMyContact, deleteMyContact } = contactsSlice.actions;
 

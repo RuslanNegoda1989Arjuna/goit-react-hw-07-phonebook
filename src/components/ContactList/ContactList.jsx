@@ -4,7 +4,10 @@ import { IconButton } from 'components/IconButton/IconButton';
 import { MdDeleteOutline } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 // import { deleteMyContact, getContacts, getFilter } from '../../redux';
-import { useGetContactsQuery } from 'redux/sliceContacts';
+import {
+  useGetContactsQuery,
+  useDeleteContactMutation,
+} from 'redux/sliceContacts';
 import { getFilter } from 'redux/sliceFilter';
 
 // import { deleteMyContact, getContacts } from 'redux/sliceContacts';
@@ -14,10 +17,13 @@ export const ContactList = () => {
   const dispatch = useDispatch();
   // Redux отримуєм з сховища дані
   const { data: contacts, isFetching } = useGetContactsQuery();
+  const [deleteContact] = useDeleteContactMutation();
+
   // const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
   console.log('123321', useGetContactsQuery());
   console.log(contacts);
+  console.log('DELETE', useDeleteContactMutation());
 
   // Ф-ція видалення
   // const deleteContact = idContact => {
@@ -49,7 +55,7 @@ export const ContactList = () => {
                 </ContactIt>
                 <IconButton
                   type="button"
-                  onClick={() => console.log('deleteContact(id)')}
+                  onClick={() => deleteContact(id)}
                   aria-label="Delete contact"
                 >
                   <MdDeleteOutline size="20px" />
