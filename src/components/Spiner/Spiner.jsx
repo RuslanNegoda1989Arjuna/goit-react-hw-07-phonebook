@@ -1,4 +1,4 @@
-import { Triangle } from 'react-loader-spinner';
+import { Triangle, Puff } from 'react-loader-spinner';
 import { Wrapper } from './Spiner.styled';
 
 export const Spiner = () => (
@@ -12,5 +12,21 @@ export const Spiner = () => (
       wrapperClassName=""
       visible={true}
     />
+  </Wrapper>
+);
+
+export const SpinerDelete = () => (
+  <Wrapper>
+    <Puff
+      height="15"
+      width="15"
+      radius={1}
+      color="#4fa94d"
+      ariaLabel="puff-loading"
+      wrapperStyle={{}}
+      wrapperClass=""
+      visible={true}
+    />
+    ;
   </Wrapper>
 );

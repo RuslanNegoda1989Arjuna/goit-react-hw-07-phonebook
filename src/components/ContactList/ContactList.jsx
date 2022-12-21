@@ -1,4 +1,4 @@
-import { Spiner } from 'components/Spiner/Spiner';
+import { Spiner, SpinerDelete } from 'components/Spiner/Spiner';
 import { ContactIt, Item, ListBox } from './ContactList.styled';
 import { IconButton } from 'components/IconButton/IconButton';
 import { MdDeleteOutline } from 'react-icons/md';
@@ -57,7 +57,11 @@ export const ContactList = () => {
                   onClick={() => deleteContact(id)}
                   aria-label="Delete contact"
                 >
-                  {isDeleting ? '..' : <MdDeleteOutline size="20px" />}
+                  {isDeleting ? (
+                    <SpinerDelete />
+                  ) : (
+                    <MdDeleteOutline size="20px" />
+                  )}
                 </IconButton>
               </Item>
             );
