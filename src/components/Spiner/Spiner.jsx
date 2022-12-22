@@ -18,15 +18,14 @@ export const Spiner = () => (
 export const SpinerDelete = () => (
   <Wrapper>
     <Puff
-      height="15"
-      width="15"
-      radius={1}
-      color="#4fa94d"
+      height="25"
+      width="25"
+      radius={2}
+      color="#000000"
       ariaLabel="puff-loading"
       wrapperStyle={{}}
       wrapperClass=""
       visible={true}
     />
-    ;
   </Wrapper>
 );

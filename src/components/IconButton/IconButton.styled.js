@@ -12,4 +12,9 @@ export const ButtonIcon = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  &:hover {
+    background-color: rgba(255, 183, 48, 1);
+    scale: 1.02;
+  }
 `;
