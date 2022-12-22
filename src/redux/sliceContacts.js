@@ -18,6 +18,8 @@ export const contactsApi = createApi({
         method: 'POST',
         body: newContact,
       }),
+      // Для підтягування змін без перезавантаження
+      invalidatesTags: ['Contacts'],
     }),
     deleteContact: builder.mutation({
       query: contactId => ({
@@ -28,7 +30,11 @@ export const contactsApi = createApi({
     }),
   }),
 });
-export const { useGetContactsQuery, useDeleteContactMutation } = contactsApi;
+export const {
+  useGetContactsQuery,
+  useDeleteContactMutation,
+  useCreateContactMutation,
+} = contactsApi;
 
 // export const { addMyContact, deleteMyContact } = contactsSlice.actions;
 
