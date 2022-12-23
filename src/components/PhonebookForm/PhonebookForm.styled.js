@@ -12,8 +12,11 @@ export const FormUs = styled(Form)`
   display: flex;
   flex-direction: column;
   width: 500px;
-  border: 2px solid;
-  background-color: aliceblue;
+  border-radius: 5px;
+  /* border: 2px solid;
+  background-color: aliceblue; */
+  box-shadow: ${props => props.theme.filters.shadow};
+  background-image: ${props => props.theme.gradients.frescoCrush};
 `;
 
 export const LabelIn = styled.label`
@@ -26,12 +29,20 @@ export const LabelIn = styled.label`
 export const Button = styled.button`
   width: 200px;
   padding: 10px;
-
-  border-radius: 3px;
+  margin: 0 auto;
+  font-weight: 700;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  &:hover {
-    background-color: rgba(255, 183, 48, 1);
-    scale: 1.02;
+
+  border: none;
+  color: rgb(45, 45, 45);
+  border-radius: 5px;
+  box-shadow: ${props => props.theme.filters.shadow};
+  background-color: rgb(250, 240, 40, 0.3);
+  :hover {
+    background-color: #fdbb2d;
+  }
+  :active {
+    transform: translateY(1px);
   }
 `;
