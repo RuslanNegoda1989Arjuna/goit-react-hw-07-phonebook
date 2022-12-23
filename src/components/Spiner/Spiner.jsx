@@ -4,8 +4,8 @@ import { Wrapper } from './Spiner.styled';
 export const Spiner = () => (
   <Wrapper>
     <Triangle
-      height="80"
-      width="80"
+      height="20"
+      width="20"
       color="#8f67d1"
       ariaLabel="triangle-loading"
       wrapperStyle={{}}

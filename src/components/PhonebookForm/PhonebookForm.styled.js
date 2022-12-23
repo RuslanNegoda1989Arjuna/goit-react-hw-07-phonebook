@@ -13,8 +13,6 @@ export const FormUs = styled(Form)`
   flex-direction: column;
   width: 500px;
   border-radius: 5px;
-  /* border: 2px solid;
-  background-color: aliceblue; */
   box-shadow: ${props => props.theme.filters.shadow};
   background-image: ${props => props.theme.gradients.frescoCrush};
 `;

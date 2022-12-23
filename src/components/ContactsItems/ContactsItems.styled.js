@@ -1,23 +1,27 @@
 import styled from '@emotion/styled';
 
 export const Item = styled.li`
+  margin-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-radius: 5px;
+  transition: all 300ms ease 0s;
+  box-shadow: #2fe6be;
+  align-items: center;
+  box-shadow: rgb(0 0 0) 0px 1px 5px;
+  &:hover {
+    background: ${props => props.theme.gradients.sunRise};
+    box-shadow: rgb(0 0 0 / 89%) 0px 7px 10px;
+  }
 `;
 
 export const ContactIt = styled.p`
+  margin: 0;
+  padding: 10px;
   margin-right: 20px;
   font-weight: 700;
-`;
-
-export const BtnDelete = styled.button`
-  width: 100px;
-  padding: 5px;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  &:hover {
-    background-color: rgba(255, 183, 48, 1);
-  }
 `;

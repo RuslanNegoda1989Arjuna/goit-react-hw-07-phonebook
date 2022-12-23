@@ -2,19 +2,19 @@ import styled from '@emotion/styled';
 
 export const ButtonIcon = styled.button`
   margin: 0;
-  padding: 10px;
+  padding: 5px;
   border: none;
   cursor: pointer;
   border-radius: 50%;
   color: white;
-  background-color: gray;
+  background-color: #d53369;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
   &:hover {
-    background-color: rgba(255, 183, 48, 1);
+    background-color: #3a1c71;
     scale: 1.02;
   }
 `;
