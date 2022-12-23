@@ -1,4 +1,3 @@
-// import { createSlice, nanoid } from '@reduxjs/toolkit';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const contactsApi = createApi({
@@ -35,21 +34,3 @@ export const {
   useDeleteContactMutation,
   useCreateContactMutation,
 } = contactsApi;
-
-// export const { addMyContact, deleteMyContact } = contactsSlice.actions;
-
-// export const contactsReducer = contactsSlice.reducer;
-
-// export const getContacts = state => state.contacts;
-// name: 'contacts',
-
-// initialState: contactsInitialState,
-
-// reducers: {
-//   addMyContact(state, action) {
-//     state.unshift(action.payload);
-//   },
-//   deleteMyContact(state, action) {
-//     return state.filter(el => el.id !== action.payload);
-//   },
-// },

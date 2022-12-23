@@ -7,7 +7,6 @@ import { setupListeners } from '@reduxjs/toolkit/dist/query';
 export const store = configureStore({
   reducer: {
     [contactsApi.reducerPath]: contactsApi.reducer,
-    // contacts: contactsReducer,
     filter: filterReducer,
   },
   middleware: getDefaultMiddleware => [

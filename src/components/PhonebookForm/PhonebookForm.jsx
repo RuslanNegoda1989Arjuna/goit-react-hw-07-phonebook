@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import { Button, FormUs, Input, LabelIn } from './PhonebookForm.styled';
-import { useDispatch, useSelector } from 'react-redux';
 import {
-  getContacts,
   useGetContactsQuery,
   useCreateContactMutation,
 } from 'redux/sliceContacts';
-import { nanoid } from 'nanoid';
+import toast from 'react-hot-toast';
 
 const initialValues = {
   name: '',
@@ -15,21 +13,21 @@ const initialValues = {
 };
 
 export const PhonebookForm = () => {
-  const dispatch = useDispatch();
   // для перевірки однакових контактів
-  const { data: contacts } = useGetContactsQuery();
+  const { data: contacts, isFetching } = useGetContactsQuery();
   const [createContact] = useCreateContactMutation();
-  // const contacts = useSelector(getContacts);
 
   const userSubmit = (values, { resetForm }) => {
     // перевірка на однакові імена
     if (contacts.find(contact => contact.name === values.name)) {
-      return alert(`${values.name} is already is contacts`);
+      return toast.error(`${values.name} is already is contacts`);
     }
-    // values.id = nanoid(5);
+
     createContact(values);
-    //  Записуємо в стейт значення
-    // dispatch(addMyContact(values));
+    if (!isFetching) {
+      toast.success(`Contact ${values.name} has been added`);
+    }
+
     // скидаємо форму
     resetForm();
   };

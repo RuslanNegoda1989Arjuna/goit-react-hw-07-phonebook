@@ -1,14 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { getContacts, useGetContactsQuery } from 'redux/sliceContacts';
-import { Empty, PhonebookContainer, Title, TitleCont } from './App.styled';
+import { Toaster } from 'react-hot-toast';
+
+import { PhonebookContainer, Title, TitleCont } from './App.styled';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { PhonebookForm } from './PhonebookForm/PhonebookForm';
 
 export const App = () => {
-  const { data: contacts } = useGetContactsQuery();
-  // const contacts = useSelector(getContacts);
   return (
     <div>
       <Title>PhoneBook</Title>
@@ -19,9 +17,7 @@ export const App = () => {
       <TitleCont>Contacts</TitleCont>
       <Filter />
       <ContactList />
+      <Toaster />
     </div>
   );
 };
-// {
-//   contacts.length === 0 ? <Empty>empty</Empty> : <ContactList />;
-// }
